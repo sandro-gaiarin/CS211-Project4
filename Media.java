@@ -8,6 +8,11 @@
  * @author Alessandro Gaiarin
  */
 
+//TODO:
+// Implement equals(); probably uses the Comparable interface in some way
+// Made toString() abstract; not sure if that's correct.
+//
+
 public abstract class Media implements Comparable {
     private String isbn; //shout have a getter (final), but no setter
     private String genre; //should have a getter (final), but no setter
@@ -43,10 +48,10 @@ public abstract class Media implements Comparable {
     }
 
     /**
-     * String representation of media.
+     * String representation of media. Overrides Object method.
      * @return "Type: type, ISBN: isbn, Genre: genre, Format: format". Use getType() for Type.
      */
-    abstract String toString(); //
+    public abstract String toString(); //
 
 
 
