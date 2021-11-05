@@ -11,7 +11,7 @@
 //TODO:
 // Test equals()
 // Clean up comments (both normal and doc comments)
-//
+// Double check the security settings on getters (currently, they're set to protected)
 
 public abstract class Media implements Comparable {
     /**
