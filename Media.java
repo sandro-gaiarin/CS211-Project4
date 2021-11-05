@@ -9,30 +9,59 @@
  */
 
 //TODO:
-// Implement equals(); probably uses the Comparable interface in some way
-// Made toString() abstract; not sure if that's correct.
+// Test equals()
+// Clean up comments (both normal and doc comments)
 //
 
 public abstract class Media implements Comparable {
+    /**
+     * isbn: String, represents ISBN of this media item.
+     */
     private String isbn; //shout have a getter (final), but no setter
+    /**
+     * genre: String, represents genre of this media item
+     */
     private String genre; //should have a getter (final), but no setter
+    /**
+     * format: the format of this media item.
+     * @see Format
+     */
     private Format format; //instance of the Format enum
 
+
+    /**
+     * Abstract; Method that'll return a string representing the type of media.
+     * @return string, type of media
+     */
     abstract String getType(); //method that will return a string representing the type of media; leave it to subclasses
 
+
+    /**
+     * Constructor
+     * @param format Format enum, format of this media item
+     * @param isbn ISBN of this media item
+     * @param genre Genre of this media item
+     */
     public Media (Format format, String isbn, String genre) { //Constructor. Didn't make this abstract, maybe I should? idk
         this.format = format;
         this.isbn = isbn;
         this.genre = genre;
     }
 
-    public boolean equals (Object obj) {
-        //Overrides parent class version to return true if the given
-        // object is also a media item, and their ISBNs match.
-        // Otherwise, return false.
-        //
-        // I'm really not sure how to do this one right now.
-        // **I think this is where the Comparable interface comes into play!**
+
+    /**
+     * Checks if given object is a media object, and if said object's ISBN
+     * matches this one
+     * @param obj Object, being checked against this current class
+     * @return Boolean value, true if the objects are both instances of Media and have matching ISBNs.
+     */
+    public boolean equals (Object obj) { //TODO: Make sure the use of "Object" here is correct.
+        //check if given object is a Media object, and then checks if the object has a matching ISBN
+        if ((obj instanceof Media) && ((Media) obj).getIsbn().equals(isbn)) {
+            //might want to split the above if statement into two different if statements
+            return true;
+        }
+        return false;
     }
 
     protected final String getIsbn() { //getter
@@ -43,7 +72,7 @@ public abstract class Media implements Comparable {
         return genre;
     }
 
-    protected final Format format() { //getter
+    protected final Format getFormat() { //getter
         return format;
     }
 
@@ -51,8 +80,16 @@ public abstract class Media implements Comparable {
      * String representation of media. Overrides Object method.
      * @return "Type: type, ISBN: isbn, Genre: genre, Format: format". Use getType() for Type.
      */
-    public abstract String toString(); //
+    public String toString() {
+        return ("Type: " + getType() + ", ISBN: " + getIsbn() + ", Genre: " + getGenre() + ", Format: " + getFormat());
+        //TODO: Make sure this works in future subclasses!
 
+    }
 
+    //The Comparable interface has a method called compareTo:
+    //      int compareTo(T o) {}
+    // o is the object being compared. It returns a negative int, zero, or a positive int
+    // if the object is less than or equal to or greater than the specified object.
+    // Currently, the details of compareTo should be left to subclasses.
 
 }
