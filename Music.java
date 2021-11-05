@@ -30,6 +30,8 @@ public abstract class Music extends Media{
         return returnString;
     }
 
-    
+    public int compareTo(???) {
+        //see description of the sort() method in MediaLibrary class
+    }
 
 }
