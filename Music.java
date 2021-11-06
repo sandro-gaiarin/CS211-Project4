@@ -1,7 +1,13 @@
 /**
  * Abstract class, subclass of Media. Represents different types of music.
  * Overrides constructor and toString() methods, and provides implementation for compareTo().
+ * @version 0.1
+ * @author Alessandro Gaiarin
  */
+
+//TODO:
+// Comments
+// compareTo()
 public abstract class Music extends Media{
     String artist;
     String title;
@@ -30,7 +36,7 @@ public abstract class Music extends Media{
         return returnString;
     }
 
-    public int compareTo(???) {
+    public int compareTo(???) { //TODO: Figure this out, nothing will work until you do
         //see description of the sort() method in MediaLibrary class
     }
 
