@@ -36,7 +36,7 @@ public abstract class Music extends Media{
         return returnString;
     }
 
-    public int compareTo(???) { //TODO: Figure this out, nothing will work until you do
+    public int compareTo(Music musicObject) { //TODO: Figure this out, nothing will work until you do
         //see description of the sort() method in MediaLibrary class
     }
 

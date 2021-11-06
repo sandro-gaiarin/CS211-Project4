@@ -18,7 +18,11 @@ public class Album extends Music{
      * May refer to an ArrayList or LinkedList, but getter should
      * be interface type List with the appropriate type specifier.
      */
-    List trackList;
+    List<String> trackList;
+
+    protected final List<String> getTrackList() { //TODO: Check this, especially with stuff like ArrayLists or LinkedLists
+        return trackList;
+    }
 
     public String getType() {
         return ("Album");
