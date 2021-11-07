@@ -1,3 +1,12 @@
+/**
+ * Subclass of Music. Overrides constructor and getType().
+ * @version 0.1
+ * @author Alessandro Gaiarin
+ */
+
+//TODO:
+// Commenting, I guess. There isn't much to do for this one.
+
 public class Single extends Music{
 
     public String getType() {

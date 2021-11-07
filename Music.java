@@ -3,7 +3,7 @@ import java.util.Collections;
 /**
  * Abstract class, subclass of Media. Represents different types of music.
  * Overrides constructor and toString() methods, and provides implementation for compareTo().
- * @version 0.1
+ * @version 0.5
  * @author Alessandro Gaiarin
  */
 
@@ -32,12 +32,18 @@ public abstract class Music extends Media{
         return year;
     }
 
+    /**
+     * Returns string of information on the music. Makes use of the superclass's toString() method.
+     * @return String of information on the music, including the artist, year, and title
+     * @see Media#toString()
+     */
     public String toString() {
         String returnString = ("Artist: " + getArtist() + ", Year: " + getYear() + ", Title: " + getTitle() + ", ");
         returnString = returnString.concat(super.toString());
         return returnString;
     }
 
+    //TODO: Doc comments. Don't want to write them until this is finished.
     public int compareTo(Media mediaObj) {
         //TODO: If something in sort() breaks, it's probably this.
         // I'd check numbers first; it might only want -1, 0, and 1 returned instead of whatever the hell you're doing here

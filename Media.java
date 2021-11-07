@@ -4,7 +4,7 @@
  * Should implement Comparable interface, and specify generic type for that interface so that Media
  * can be compared to other Media. The details of the compareTo() method should be
  * left to the subclasses.
- * @version 0.1
+ * @version 0.5
  * @author Alessandro Gaiarin
  */
 
