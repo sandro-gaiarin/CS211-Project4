@@ -17,7 +17,7 @@ public class Album extends Music{
      * trackList is a list of strings representing tracks on an album.
      * May refer to an ArrayList or LinkedList.
      */
-    private List<String> trackList;
+    private List<String> trackList = new ArrayList<>();
 
     /**
      * Returns the trackList.
