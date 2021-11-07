@@ -1,6 +1,10 @@
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+//TODO:
+// Doc comments
+// Testing
+// This won't work until Book is created
 
 public class Movie extends Media{
     private String title;
