@@ -31,7 +31,7 @@ public class Album extends Music{
     public Album(Format format, String isbn, String genre, String artist, String title, int year, List trackList) {
         super(format, isbn, genre, artist, title, year);
         this.trackList = trackList; //this probably won't work; see below:
-        //should be added to the private data member using addAll(...)
+            //TODO: should be added to the private data member using addAll(...)
 
     }
 
