@@ -63,7 +63,6 @@ public class Movie extends Media{
         compareVal = ((Movie) mediaObj).getYear() - getYear();
         //TODO: Not sure if the answer here will work, check later
         return compareVal;
-
     }
 
 }
