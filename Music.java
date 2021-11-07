@@ -9,11 +9,11 @@ import java.util.Collections;
 
 //TODO:
 // Comments
-// compareTo()
+// Testing, especially compareTo()
 public abstract class Music extends Media{
-    String artist;
-    String title;
-    int year;
+    private String artist;
+    private String title;
+    private int year;
 
     public Music(Format format, String isbn, String genre, String artist, String title, int year) {
         super(format, isbn, genre);
@@ -38,7 +38,9 @@ public abstract class Music extends Media{
         return returnString;
     }
 
-    public int compareTo(Media mediaObj) { //TODO: Figure this out, nothing will work until you do
+    public int compareTo(Media mediaObj) {
+        //TODO: If something in sort() breaks, it's probably this.
+        // I'd check numbers first; it might only want -1, 0, and 1 returned instead of whatever the hell you're doing here
         //Music is sorted by artist, year, then title
         int compareVal = 0;
 

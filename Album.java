@@ -10,7 +10,6 @@ import java.util.List;
 
 //TODO:
 // trackList; learn how lists work in java
-// compareTo() in Music needs to be finished before Album will function properly
 
 public class Album extends Music{
     /**
@@ -18,7 +17,7 @@ public class Album extends Music{
      * May refer to an ArrayList or LinkedList, but getter should
      * be interface type List with the appropriate type specifier.
      */
-    List<String> trackList;
+    private List<String> trackList;
 
     protected final List<String> getTrackList() { //TODO: Check this, especially with stuff like ArrayLists or LinkedLists
         return trackList;
@@ -28,16 +27,16 @@ public class Album extends Music{
         return ("Album");
     }
 
-    public Album(Format format, String isbn, String genre, String artist, String title, int year, List trackList) {
+    public Album(Format format, String isbn, String genre, String artist, String title, int year, List<String> trackList) {
         super(format, isbn, genre, artist, title, year);
-        this.trackList = trackList; //this probably won't work; see below:
-            //TODO: should be added to the private data member using addAll(...)
+        //this.trackList = trackList; //this probably won't work; see below:
+        this.trackList.addAll(trackList); //TODO Test this
 
     }
 
     @Override
     public String toString() {
-        return ((super.toString()).concat(", Tracks: " + trackList));
+        return ((super.toString()).concat(", Tracks: " + getTrackList()));
     }
 
 }

@@ -13,6 +13,7 @@
 // Clean up comments (both normal and doc comments)
 // Double check the security settings on getters (currently, they're set to protected)
 // Specify generic type of that interface so Media can be compared to other Media (???)
+    //DONE, IT NEEDED <Media>
 
 public abstract class Media implements Comparable<Media> {
     /**
