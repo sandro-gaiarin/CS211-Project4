@@ -4,6 +4,8 @@
  * @param <V>
  */
 
+//TODO: Fix class declaration?
+// IT'S PASSING TESTS BUT I DON'T KNOW WHY LMAO
 public class Label<K,V extends Comparable<V>> implements Comparable<Label<K,V>>{
     K key; //reference of first generic type
     V value; //reference of second generic type
@@ -28,9 +30,8 @@ public class Label<K,V extends Comparable<V>> implements Comparable<Label<K,V>>{
     }
 
     //TODO:
-    // There's no way this one is right
-    // I've fallen behind in class and now I'm really fuckin worried
-    public int compareTo(Label other) {
+    // IS THIS RIGHT???
+    public int compareTo(Label<K,V> other) {
         return value.compareTo(other.getValue()); //if the generic specification is correct, there should be no need to cast anything
     }
 
