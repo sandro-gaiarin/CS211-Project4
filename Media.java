@@ -66,15 +66,15 @@ public abstract class Media implements Comparable<Media> {
         return false;
     }
 
-    protected final String getIsbn() { //getter
+    public final String getIsbn() { //getter
         return isbn;
     }
 
-    protected final String getGenre() { //getter
+    public final String getGenre() { //getter
         return genre;
     }
 
-    protected final Format getFormat() { //getter
+    public final Format getFormat() { //getter
         return format;
     }
 

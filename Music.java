@@ -22,13 +22,13 @@ public abstract class Music extends Media{
         this.year = year;
     }
 
-    protected final String getArtist() {
+    public final String getArtist() {
         return artist;
     }
-    protected final String getTitle() {
+    public final String getTitle() {
         return title;
     }
-    protected final int getYear() {
+    public final int getYear() {
         return year;
     }
 

@@ -23,7 +23,7 @@ public class Album extends Music{
      * Returns the trackList.
      * @return List of strings
      */
-    protected final List<String> getTrackList() { //TODO: Check this, especially with stuff like ArrayLists or LinkedLists
+    public final List<String> getTrackList() { //TODO: Check this, especially with stuff like ArrayLists or LinkedLists
         return trackList;
     }
 
