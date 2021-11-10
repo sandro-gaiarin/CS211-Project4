@@ -34,9 +34,4 @@ public class Label<K,V extends Comparable<V>> implements Comparable<Label<K,V>>{
     public int compareTo(Label<K,V> other) {
         return value.compareTo(other.getValue()); //if the generic specification is correct, there should be no need to cast anything
     }
-
-
-
-
-
 }
