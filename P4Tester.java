@@ -410,10 +410,10 @@ public class P4Tester {
 		}
 	}
 
-}/**
+
 	//MediaLibrary tests
-	@Test(timeout=1000)
-	public void test_medialibrary(){
+	@Test(timeout = 1000)
+	public void test_medialibrary() {
 		MediaLibrary ml = new MediaLibrary();
 		//a series
 		Format f = Format.BLURAY;
@@ -428,7 +428,7 @@ public class P4Tester {
 		eps.add("Episode 1");
 		eps.add("Episode 2");
 		eps.add("Episode 3");
-		Series series = new Series(f,isbn,genre,title,cast,eps);
+		Series series = new Series(f, isbn, genre, title, cast, eps);
 		//a single
 		Single single = new Single(Format.CD, "098-7-65-432098-7", "Not known", "Anonymous", "Self-titled", 2005);
 		//a movie
@@ -442,11 +442,13 @@ public class P4Tester {
 		cast.add("Actor 1");
 		cast.add("Actor 2");
 		cast.add("Actor 3");
-		Movie mov = new Movie(f,isbn,genre,title,dir,y,cast);
+		Movie mov = new Movie(f, isbn, genre, title, dir, y, cast);
 		//an album
 		ArrayList<String> tl = new ArrayList<String>();
-		tl.add("Track 1"); tl.add("Track 2"); tl.add("Track 3"); 
-		Album alb = new Album(Format.VINYL, "123-4-56-789012-3", "Unknown", "Unknown", "Untitled", 2021,tl);		
+		tl.add("Track 1");
+		tl.add("Track 2");
+		tl.add("Track 3");
+		Album alb = new Album(Format.VINYL, "123-4-56-789012-3", "Unknown", "Unknown", "Untitled", 2021, tl);
 		//a book
 		f = Format.HARDBACK;
 		isbn = "456-7-89-012345-6";
@@ -454,26 +456,26 @@ public class P4Tester {
 		String author = "John Smith";
 		title = "Not titled";
 		String publisher = "Penguin Books";
-		Book book = new Book(f,isbn,genre,author,title,publisher);
-		try{
+		Book book = new Book(f, isbn, genre, author, title, publisher);
+		try {
 			ml.add("My favorite series", series);
 			ml.add("My favorite single", single);
 			ml.add("My favorite movie", mov);
 			ml.add("My favorite album", alb);
 			ml.add("My favorite book", book);
-		} catch(MediaAlreadyInLibrary mail){
+		} catch (MediaAlreadyInLibrary mail) {
 			assertTrue("Threw MediaAlreadyInLibrary unexpectedly", false);
 		}
 		SearchFilter sf = new SearchFilter("Horror");
 		List<Label<String, Media>> filteredList = ml.filter(sf);
 		List<Label<String, Media>> expectedList = new ArrayList<Label<String, Media>>();
 		expectedList.add(new Label<String, Media>("My favorite book", book));
-		checkLabeledMediaLists(expectedList,filteredList);
+		checkLabeledMediaLists(expectedList, filteredList);
 		List<Label<String, Media>> expectedSortedList = new ArrayList<Label<String, Media>>();
-		expectedSortedList.add(new Label<String,Media>("My favorite book", book)); 
-		expectedSortedList.add(new Label<String,Media>("My favorite movie", mov)); 
-		expectedSortedList.add(new Label<String,Media>("My favorite series", series)); 
-		expectedSortedList.add(new Label<String, Media>("My favorite single", single)); 
+		expectedSortedList.add(new Label<String, Media>("My favorite book", book));
+		expectedSortedList.add(new Label<String, Media>("My favorite movie", mov));
+		expectedSortedList.add(new Label<String, Media>("My favorite series", series));
+		expectedSortedList.add(new Label<String, Media>("My favorite single", single));
 		expectedSortedList.add(new Label<String, Media>("My favorite album", alb));
 		ml.sort();
 		sf = new SearchFilter("ISBN"); //isbn is in every toString, should match all
@@ -483,12 +485,12 @@ public class P4Tester {
 		Book duplicateISBN = new Book(Format.LASERDISC, "123-4-56-789012-3", "Some genre", "Somebody", "Something", "Some publisher");
 		//all fields are different, EXCEPT for ISBN, which matches the album
 		//should generate an exception when adding
-		try{
+		try {
 			ml.add("A duplicate item", duplicateISBN);
-		} catch(MediaAlreadyInLibrary mail){
+		} catch (MediaAlreadyInLibrary mail) {
 			exceptionThrownOnDuplicateAdd = true;
 		}
-		assertTrue("No MediaAlreadyInLibrary exception thrown when adding an item with an existing ISBN",exceptionThrownOnDuplicateAdd);
+		assertTrue("No MediaAlreadyInLibrary exception thrown when adding an item with an existing ISBN", exceptionThrownOnDuplicateAdd);
 	}
 
 	//MediaAlreadyInLibrary tests
@@ -512,4 +514,4 @@ public class P4Tester {
 	}
 	
 
-} */
+}
