@@ -16,7 +16,7 @@ public class MediaLibrary {
     // supposed to throw an error if there's already
     // matching media within the library. Check it later.
     public void add(String name, Media media) throws MediaAlreadyInLibrary {
-        Label newLabel = new Label(name, media);
+        Label<String, Media> newLabel = new Label<>(name, media);
         
         for (int i = 0; i < library.size(); ++i) {
             if (newLabel.equals(library.get(i))) {
