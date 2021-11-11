@@ -358,14 +358,15 @@ public class P4Tester {
 		assertEquals("Incorrect equals() for Label", aLabeledMedia, anotherLabeledMedia);
 	}
 
-}/**
+
 	//MediaFilter tests
-	@Test(timeout=1000)
-	public void test_mediafilter(){
+	@Test(timeout = 1000)
+	public void test_mediafilter() {
 		Class<?> c = null;
-		try{
+		try {
 			c = Class.forName("MediaFilter");
-		} catch(ClassNotFoundException cnfe){ }
+		} catch (ClassNotFoundException cnfe) {
+		}
 		assertTrue("MediaFilter interface not found", c != null);
 		assertTrue("MediaFilter is not an interface", c.isInterface());
 		Method m = null;
@@ -375,18 +376,20 @@ public class P4Tester {
 		String author = "John Smith";
 		String title = "Not titled";
 		String publisher = "Penguin Books";
-		Book b = new Book(f,isbn,genre,author,title,publisher);
-		try{
+		Book b = new Book(f, isbn, genre, author, title, publisher);
+		try {
 
 			Class<?> c2 = new Label<String, Media>("My favorite book", b).getClass();
 			m = c.getMethod("matches", c2);
-		} catch(NoSuchMethodException nsme){ }
+		} catch (NoSuchMethodException nsme) {
+		}
 		assertTrue("MediaFilter's matches method does not exist, or has incorrect arguments", m != null);
 	}
 
+
 	//SearchFilter tests
-	@Test(timeout=1000)
-	public void test_searchfilter(){
+	@Test(timeout = 1000)
+	public void test_searchfilter() {
 		SearchFilter sf = new SearchFilter("Horror");
 		assertTrue("SearchFilter does not implement MediaFilter", sf instanceof MediaFilter);
 		Format f = Format.HARDBACK;
@@ -395,16 +398,19 @@ public class P4Tester {
 		String author = "John Smith";
 		String title = "Not titled";
 		String publisher = "Penguin Books";
-		Book b = new Book(f,isbn,genre,author,title,publisher);
-		Label<String,Media> aLabeledMedia = new Label<String, Media>("My favorite book", b);
+		Book b = new Book(f, isbn, genre, author, title, publisher);
+		Label<String, Media> aLabeledMedia = new Label<String, Media>("My favorite book", b);
 		assertTrue("SearchFilter's matches() method does not match toString() correctly", sf.matches(aLabeledMedia));
 	}
-	public void checkLabeledMediaLists(List<Label<String, Media>> expectedList, List<Label<String, Media>> givenList){
-		assertEquals("returned list unexpected size",expectedList.size(),givenList.size());
-		for(int i=0;i<expectedList.size();i++){
-			assertEquals("Unexpected content in returned list at position "+i,expectedList.get(i), givenList.get(i));
+
+	public void checkLabeledMediaLists(List<Label<String, Media>> expectedList, List<Label<String, Media>> givenList) {
+		assertEquals("returned list unexpected size", expectedList.size(), givenList.size());
+		for (int i = 0; i < expectedList.size(); i++) {
+			assertEquals("Unexpected content in returned list at position " + i, expectedList.get(i), givenList.get(i));
 		}
 	}
+
+}/**
 	//MediaLibrary tests
 	@Test(timeout=1000)
 	public void test_medialibrary(){

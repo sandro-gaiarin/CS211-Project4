@@ -14,6 +14,13 @@ public class SearchFilter implements MediaFilter{
      * @return
      */
     public boolean matches(Label<String, Media> label) {
+        //remember, getKey() for the label's string,
+        // getValue() for the label's Media object
+        if ((label.getKey().indexOf(searchTerm, 0) != -1) || (
+                label.getValue().toString().indexOf(searchTerm, 0) != -1)) {
+            return true;
+        }
+        return false;
 
     }
 
