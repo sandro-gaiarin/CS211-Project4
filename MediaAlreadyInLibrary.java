@@ -5,9 +5,6 @@
  * @author Alessandro Gaiarin
  */
 
-//TODO:
-// Fairly sure this will just work.
-
 public class MediaAlreadyInLibrary extends Exception{
     private String name;
     private Media media; //reference to duplicate media item

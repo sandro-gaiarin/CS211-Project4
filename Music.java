@@ -1,20 +1,26 @@
-import java.util.Collections;
-
 /**
  * Abstract class, subclass of Media. Represents different types of music.
  * Overrides constructor and toString() methods, and provides implementation for compareTo().
- * @version 0.5
+ * @version 0.9
  * @author Alessandro Gaiarin
  */
 
-//TODO:
-// Comments
-// Testing, especially compareTo()
 public abstract class Music extends Media{
+
     private String artist;
     private String title;
     private int year;
 
+
+    /**
+     * Constructor.
+     * @param format sent to superclass
+     * @param isbn sent to superclass
+     * @param genre sent to superclass
+     * @param artist String, represents musical artist
+     * @param title String, represents title of album or single
+     * @param year Int, represents year music was released
+     */
     public Music(Format format, String isbn, String genre, String artist, String title, int year) {
         super(format, isbn, genre);
         this.artist = artist;
@@ -22,15 +28,10 @@ public abstract class Music extends Media{
         this.year = year;
     }
 
-    public final String getArtist() {
-        return artist;
-    }
-    public final String getTitle() {
-        return title;
-    }
-    public final int getYear() {
-        return year;
-    }
+    //Getters:
+    public final String getArtist() {return artist;}
+    public final String getTitle() {return title;}
+    public final int getYear() {return year;}
 
     /**
      * Returns string of information on the music. Makes use of the superclass's toString() method.
@@ -43,10 +44,12 @@ public abstract class Music extends Media{
         return returnString;
     }
 
-    //TODO: Doc comments. Don't want to write them until this is finished.
+    /**
+     * In short, sorts this object with arg Media object. See comments within code.
+     * @param mediaObj object that this.Music is being sorted against
+     * @return an int value, representing whether this.Music goes first, second, or matches the comparator.
+     */
     public int compareTo(Media mediaObj) {
-        //TODO: If something in sort() breaks, it's probably this.
-        // I'd check numbers first; it might only want -1, 0, and 1 returned instead of whatever the hell you're doing here
         //Music is sorted by artist, year, then title
         int compareVal = 0;
 
@@ -66,19 +69,12 @@ public abstract class Music extends Media{
         }
         //Compare the years the music was released
         compareVal = ((Music) mediaObj).getYear() - getYear();
-        //TODO: negative value means this.Music is ordered first. Not sure if the above is correct.
         if (compareVal != 0) {
             return compareVal;
         }
         //Compare the titles, using the String version of compareTo() again.
         compareVal = getTitle().compareTo(((Music) mediaObj).getTitle());
         return compareVal; //we just return at the end, because title is the last thing to sort by
-
-
-
-
-
-
     }
 
 }

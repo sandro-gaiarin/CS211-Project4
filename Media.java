@@ -1,19 +1,12 @@
 /**
  * Abstract class, represents different kinds of media.
- * All of the media in the media library will be subclasses of this class.
+ * All media in the media library will be subclasses of this class.
  * Should implement Comparable interface, and specify generic type for that interface so that Media
  * can be compared to other Media. The details of the compareTo() method should be
  * left to the subclasses.
- * @version 0.5
+ * @version 1.0
  * @author Alessandro Gaiarin
  */
-
-//TODO:
-// Test equals()
-// Clean up comments (both normal and doc comments)
-// Double check the security settings on getters (currently, they're set to protected)
-// Specify generic type of that interface so Media can be compared to other Media (???)
-    //DONE, IT NEEDED <Media>
 
 public abstract class Media implements Comparable<Media> {
     /**
@@ -66,17 +59,12 @@ public abstract class Media implements Comparable<Media> {
         return false;
     }
 
-    public final String getIsbn() { //getter
-        return isbn;
-    }
-
-    public final String getGenre() { //getter
-        return genre;
-    }
-
-    public final Format getFormat() { //getter
-        return format;
-    }
+    /**
+     * Getters for fields:
+     */
+    public final String getIsbn() {return isbn;}
+    public final String getGenre() {return genre;}
+    public final Format getFormat() {return format;}
 
     /**
      * String representation of media. Overrides Object method.
@@ -84,14 +72,5 @@ public abstract class Media implements Comparable<Media> {
      */
     public String toString() {
         return ("Type: " + getType() + ", ISBN: " + getIsbn() + ", Genre: " + getGenre() + ", Format: " + getFormat());
-        //TODO: Make sure this works in future subclasses!
-
     }
-
-    //The Comparable interface has a method called compareTo:
-    //      int compareTo(T o) {}
-    // o is the object being compared. It returns a negative int, zero, or a positive int
-    // if the object is less than or equal to or greater than the specified object.
-    // Currently, the details of compareTo should be left to subclasses.
-
 }

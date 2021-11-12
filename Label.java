@@ -1,11 +1,11 @@
 /**
- * Generic class
+ * Generic class, uses Comparable as an interface
+ * @version 1.0
+ * @author Alessandro Gaiarin
  * @param <K>
- * @param <V>
+ * @param <V> this parameter should be a child class of Comparable
  */
 
-//TODO: Fix class declaration?
-// IT'S PASSING TESTS BUT I DON'T KNOW WHY LMAO
 public class Label<K,V extends Comparable<V>> implements Comparable<Label<K,V>>{
     K key; //reference of first generic type
     V value; //reference of second generic type
@@ -20,8 +20,11 @@ public class Label<K,V extends Comparable<V>> implements Comparable<Label<K,V>>{
         this.value = value;
     }
 
-    //TODO: Figure this one out
-    // Test this. Pretty sure that second half of the if-and statement is correct, but we'll see.
+    /**
+     * Compares the arg object against this.Label.
+     * @param obj any Object
+     * @return returns True if the argument Object matches this.Label. Otherwise it returns false.
+     */
     public boolean equals(Object obj) {
         if (obj instanceof Label && this.value.equals(((Label<?, ?>) obj).getValue())){ //this.value.equals(obj.value);
             return true;
@@ -29,8 +32,14 @@ public class Label<K,V extends Comparable<V>> implements Comparable<Label<K,V>>{
         return false;
     }
 
-    //TODO:
-    // IS THIS RIGHT???
+    /**
+     * Okay, this one is kind of weird and I still am not sure I completely understand it.
+     * Basically, this one will compare the value of this.Label to the label that's passed in, using the
+     * superclass compareTo.
+     * @param other a Label object. K,V should be the same objects as used here, I believe.
+     * @return Int, dictates which Label object comes first.
+     * @see Music#compareTo(Media) uses a similar methodology for the return
+     */
     public int compareTo(Label<K,V> other) {
         return value.compareTo(other.getValue()); //if the generic specification is correct, there should be no need to cast anything
     }

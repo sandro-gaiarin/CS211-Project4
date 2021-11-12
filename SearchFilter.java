@@ -1,6 +1,16 @@
+/**
+ * Implements the MediaFilter interface.
+ * Search-style of filter. Matches labeled media items with the searchTerm.
+ * @version 1.0
+ * @author Alessandro Gaiarin
+ */
 public class SearchFilter implements MediaFilter{
     private String searchTerm;
 
+    /**
+     * Constructor
+     * @param searchTerm String, becomes field searchTerm. Term being used to search.
+     */
     public SearchFilter(String searchTerm) {
         this.searchTerm = searchTerm;
     }
@@ -9,9 +19,8 @@ public class SearchFilter implements MediaFilter{
      * Returns true if the label contains the searchTerm,
      * or if the searchTerm is in the string returned by the
      * toString method of the media item.
-     * You may find the string method indexOf useful for this.
-     * @param label
-     * @return
+     * @param label Label<String, Media> item that's being checked
+     * @return True if the searchTerm is contained in the Labeled Media item somewhere, otherwise false.
      */
     public boolean matches(Label<String, Media> label) {
         //remember, getKey() for the label's string,
@@ -21,8 +30,5 @@ public class SearchFilter implements MediaFilter{
             return true;
         }
         return false;
-
     }
-
-
 }
